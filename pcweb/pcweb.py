@@ -9,7 +9,7 @@ from pcweb.middleware import CloseSidebarMiddleware
 from pcweb.pages import routes
 from pcweb.pages.docs.component import multi_docs
 
-# Create the app.
+# Create the apps.
 app = pc.App(
     state=State,
     style=styles.BASE_STYLE,
