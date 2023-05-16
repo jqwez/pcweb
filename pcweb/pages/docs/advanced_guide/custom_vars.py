@@ -10,22 +10,22 @@ from pcweb.templates.docpage import (
     subheader,
 )
 
-code1 = """import googletrans
-
-class Translation(pc.Base):
-    original_text: str
-    translated_text: str
-
-class TranslationState(State):
-    input_text: str = "Hola Mundo"
-    current_translation: Translation = Translation(original_text="", translated_text="")
-
-    def translate(self):
-        text = googletrans.Translator().translate(self.input_text, dest="en").text
-        self.current_translation = Translation(original_text=self.input_text, translated_text=text)
-
-"""
-exec(code1)
+# code1 = """import googletrans
+#
+# class Translation(pc.Base):
+#     original_text: str
+#     translated_text: str
+#
+# class TranslationState(State):
+#     input_text: str = "Hola Mundo"
+#     current_translation: Translation = Translation(original_text="", translated_text="")
+#
+#     def translate(self):
+#         text = googletrans.Translator().translate(self.input_text, dest="en").text
+#         self.current_translation = Translation(original_text=self.input_text, translated_text=text)
+#
+# """
+# exec(code1)
 
 code2 = """pc.vstack(
     pc.input(on_blur=TranslationState.set_input_text, default_value=TranslationState.input_text, placeholder="Text to translate..."),
@@ -58,5 +58,5 @@ def custom_vars():
         doctext(
             "Once defined, we can use it as a state var, and reference it from within a component. ",
         ),
-        docdemo(code2, code1, eval(code2)),
+        # docdemo(code2, code1, eval(code2)),
     )
